@@ -1,0 +1,9 @@
+*.csv
+*.xlsx
+*.tmp
+/results/
+/LabViewFiles/
+/__pycache__/
+*.pyc
+learn.py
+Notes
