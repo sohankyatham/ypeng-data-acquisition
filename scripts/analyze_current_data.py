@@ -23,15 +23,21 @@ import tkinter as tk
 from tkinter import filedialog, messagebox 
 import os
 
-
-
 '''
-Define functions - add implementation soon
+Define functions
 '''
 
 def get_filepath():
     '''File dialog to get the .csv data file that needs to be analyzed'''
-    pass
+    filepath = filedialog.askopenfilename(title="Select a CSV file", filetypes=[("CSV files", "*.csv")])
+    
+    if filepath:
+        messagebox.showinfo("File Selected", f"You selected:\n{filepath}")
+        return filepath
+    else:
+        messagebox.showwarning("No file", "No file was selected!")
+        return None
+
 
 def load_data():
     '''Load CSV data and return a pandas DataFrame'''
@@ -59,7 +65,7 @@ def launch_analysis_ui():
     label = tk.Label(root, text="Select a CSV file to analyze:")
     label.pack(pady=10)
 
-    select_button = tk.Button(root, text="Browse CSV")
+    select_button = tk.Button(root, text="Browse CSV", command=get_filepath)
     select_button.pack(pady=5)
 
     analyze_button = tk.Button(root, text="Analyze")
