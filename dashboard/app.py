@@ -64,3 +64,7 @@ with st.expander("📁 Upcoming: Data Upload"):
 
 with st.expander("📊 Upcoming: Automatic Visualization"):
     st.write("Plot voltage, current, power output, and strain vs time.")
+
+
+st.markdown("---")
+st.markdown("© 2025 YPENG Research | Powered by Streamlit")
