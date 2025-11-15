@@ -23,6 +23,18 @@ st.set_page_config(page_title="YPENG Data Dashboard", layout="wide")
 # Title
 st.title("Piezoelectric Nanogenerator Data Dashboard")
 
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.metric("Samples Processed", "0")
+
+with col2:
+    st.metric("Datasets Uploaded", "0")
+
+with col3:
+    st.metric("Visualizations Created", "0")
+
+
 # Simple label or text
 st.write("Welcome to the interactive dashboard for analyzing yarn-based Piezoelectric Nanogenerator data!")
 st.info("This dashboard will soon include plots, data uploads, and analytics.")
