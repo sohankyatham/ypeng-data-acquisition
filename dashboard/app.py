@@ -19,10 +19,14 @@ import streamlit as st
 
 # Set the page title and layout
 st.set_page_config(page_title="YPENG Data Dashboard", layout="wide")
+# Favicon
+st.set_page_config(page_title="YPENG Data Dashboard", page_icon="⚡", layout="wide")
 
 # Title
 st.title("Piezoelectric Nanogenerator Data Dashboard")
+st.write("Welcome to the interactive dashboard for analyzing yarn-based Piezoelectric Nanogenerator data!")
 
+# Metrics
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -35,16 +39,13 @@ with col3:
     st.metric("Visualizations Created", "0")
 
 
+
 # Simple label or text
-st.write("Welcome to the interactive dashboard for analyzing yarn-based Piezoelectric Nanogenerator data!")
 st.info("This dashboard will soon include plots, data uploads, and analytics.")
 
-st.markdown("---")
-st.markdown("""
-Yarn-Based Piezoelectric Nanogenerator (YPENG) Dashboard  
-Easily upload, explore, and visualize your experimental data.
-""")
-st.markdown("---")
+
+
+# Navigation
 
 st.sidebar.title("Navigation")
 page = st.sidebar.radio("Go to:", ["Home", "Analyze Data", "Visualization", "Other tools will be added soon"])
@@ -55,8 +56,22 @@ st.sidebar.info("Use the navigation tabs to explore features.")
 st.sidebar.markdown("### 🧪 About")
 st.sidebar.write("Research dashboard for YPENG experiments.")
 
+# Theme
+#theme = st.sidebar.selectbox("Theme Mode (Mock)", ["Light", "Dark"])
 st.sidebar.markdown("Made by: **Sohan Kyatham**")
 
+
+# Cards
+colA, colB, colC = st.columns(3)
+
+with colA:
+    st.success("**Upload Data**\n\nImport CSV/Excel files for analysis.")
+
+with colB:
+    st.warning("**Process Data**\n\nClean, filter, and transform your datasets.")
+
+with colC:
+    st.info("**Visualize Results**\n\nGenerate voltage, current, and power plots.")
 
 
 with st.expander("📁 Upcoming: Data Upload"):
@@ -66,5 +81,18 @@ with st.expander("📊 Upcoming: Automatic Visualization"):
     st.write("Plot voltage, current, power output, and strain vs time.")
 
 
+
+
+with st.expander("ℹ️ How this Dashboard Works"):
+    st.write("""
+    1. Upload your experimental data  
+    2. Select processing options  
+    3. View plots and summary tables  
+    4. Export results for publication  
+    """)
+
+
+
+# Footer 
 st.markdown("---")
-st.markdown("© 2025 YPENG Research | Powered by Streamlit")
+st.markdown("© 2025 YPENG Research | Made by Sohan Kyatham | Powered by Streamlit")
