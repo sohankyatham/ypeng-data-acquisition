@@ -56,3 +56,11 @@ st.sidebar.markdown("### 🧪 About")
 st.sidebar.write("Research dashboard for YPENG experiments.")
 
 st.sidebar.markdown("Made by: **Sohan Kyatham**")
+
+
+
+with st.expander("📁 Upcoming: Data Upload"):
+    st.write("This section will allow importing CSV, Excel, and live sensor data.")
+
+with st.expander("📊 Upcoming: Automatic Visualization"):
+    st.write("Plot voltage, current, power output, and strain vs time.")
