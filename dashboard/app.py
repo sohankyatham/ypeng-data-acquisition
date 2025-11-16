@@ -47,18 +47,18 @@ st.info("This dashboard will soon include plots, data uploads, and analytics.")
 
 # Navigation
 
-st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to:", ["Home", "Analyze Data", "Visualization", "Other tools will be added soon"])
+# st.sidebar.title("Navigation")
+# page = st.sidebar.radio("Go to:", ["Home", "Analyze Data", "Visualization", "Other tools will be added soon"])
 
-st.sidebar.markdown("## ⚙️ Dashboard Controls")
-st.sidebar.info("Use the navigation tabs to explore features.")
+# st.sidebar.markdown("## ⚙️ Dashboard Controls")
+# st.sidebar.info("Use the navigation tabs to explore features.")
 
-st.sidebar.markdown("### 🧪 About")
-st.sidebar.write("Research dashboard for YPENG experiments.")
+# st.sidebar.markdown("### 🧪 About")
+# st.sidebar.write("Research dashboard for YPENG experiments.")
 
-# Theme
-#theme = st.sidebar.selectbox("Theme Mode (Mock)", ["Light", "Dark"])
-st.sidebar.markdown("Made by: **Sohan Kyatham**")
+# # Theme
+# #theme = st.sidebar.selectbox("Theme Mode (Mock)", ["Light", "Dark"])
+# st.sidebar.markdown("Made by: **Sohan Kyatham**")
 
 
 # Cards
