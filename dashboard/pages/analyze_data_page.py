@@ -23,3 +23,20 @@ col1, col2, col3 = st.columns(3)
 col1.metric("Rows", len(df))
 col2.metric("Columns", len(df.columns))
 col3.metric("Missing Values", df.isna().sum().sum())
+
+# Tabs
+tab1, tab2, tab3 = st.tabs(["📈 Summary Stats", "📉 Plot Data", "📄 Raw Table"])
+    
+with tab1:
+    st.write(df.describe())
+
+with tab2:
+    st.line_chart(df)
+
+with tab3:
+    st.dataframe(df)
+
+# Advanced options
+with st.expander("Advanced Options"):
+    normalize = st.checkbox("Normalize data")
+    remove_outliers = st.checkbox("Remove outliers")
