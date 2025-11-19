@@ -36,7 +36,7 @@ with metrics_col_models:
     st.metric("Models Trained", "0")
 
 
-# Feature Cards - three side-by-side columns
+# --- Feature Cards - three side-by-side columns ---
 # Make the feature cards actionable links
 col_upload, col_process, col_visualize = st.columns(3)
 
@@ -60,21 +60,45 @@ st.write("""
 """)
 
 
-# About Section 
+# --- About Section ---
 st.markdown("## 🔬 About Our Research")
 st.write("Learn more about the Innovative Materials Research Team.")
 
 # Button to redirect users to lab website
-# Add hover effect when hovering over the button
+# Custom CSS for hover effect
+st.markdown("""
+<style>
+.visit-website-btn {
+    text-decoration: none !important; 
+    color: white !important;
+    background-color: #1b6934 !important;
+    font-size: 16px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: 0.6s;
+}
+
+/* Hover Effect */
+.visit-website-btn:hover {
+    text-decoration: underline !important;
+    color: white !important;
+    background-color: #238c45 !important;
+    font-size: 16.5px;
+    padding: 10.5px 18.5px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# Button - Redirects users to lab website
 st.markdown(
-"""
-<a href="https://www.fcs.uga.edu/tmi/innovative-materials-research-team" target="_blank">
-    <button style="font-size: 16px; border-radius: 10px; background-color: blue;">
+    """
+    <a href="https://www.fcs.uga.edu/tmi/innovative-materials-research-team" 
+       target="_blank" 
+       class="visit-website-btn">
         🌐 Visit the Website
-    </button>
-</a>
-""",
-unsafe_allow_html=True
+    </a>
+    """,
+    unsafe_allow_html=True
 )
 
 # Footer 
