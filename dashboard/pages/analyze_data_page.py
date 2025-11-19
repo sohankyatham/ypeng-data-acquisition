@@ -1,3 +1,7 @@
+'''
+This page will allow importing CSV and Excel data for processing & analysis
+'''
+
 import streamlit as st
 import pandas as pd
 
