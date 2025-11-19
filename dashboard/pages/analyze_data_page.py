@@ -12,6 +12,7 @@ st.markdown("### 🔼 Upload Data File")
 uploaded_file = st.file_uploader("Upload CSV, Excel, or text data files", type=['csv', 'xlsx', 'txt'])
 
 if uploaded_file:
+    st.balloons()
     # Read file
     if uploaded_file.name.endswith(".csv"):
         df = pd.read_csv(uploaded_file)
@@ -38,6 +39,6 @@ with tab3:
     st.dataframe(df)
 
 # Advanced options
-with st.expander("Advanced Options"):
+with st.expander("Advanced Options - features not implemented yet"):
     normalize = st.checkbox("Normalize data")
     remove_outliers = st.checkbox("Remove outliers")
