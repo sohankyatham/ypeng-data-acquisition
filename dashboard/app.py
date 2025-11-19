@@ -47,17 +47,7 @@ with col_process:
     st.warning("**Process Data** \n\n Clean, filter, and transform your datasets.")
 
 with col_visualize:
-    st.info("**Visualize Results** \n\n Generate voltage, current, and power plots.")
-
-
-st.markdown("---")
-st.markdown("ℹ️ How to use this Dashboard")
-st.write("""
-1. Upload your experimental data  
-2. Select processing options  
-3. View plots and summary tables  
-4. Export/save results   
-""")
+    st.info("**Visualize & Export Results** \n\n Generate voltage, current, and power plots.")
 
 
 # --- About Section ---

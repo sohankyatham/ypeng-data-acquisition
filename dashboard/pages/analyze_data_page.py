@@ -53,21 +53,24 @@ else:
 summary_tab, plot_tab, raw_table_tab = st.tabs(["📈 Summary Stats", "📉 Plot Data", "📄 Raw Table"])
     
 with summary_tab:
-    describe_data = df.describe()
+    if not df.empty and df.select_dtypes(include='number').shape[1] > 0:
+        describe_data = df.describe()
 
-    # Add peak-to-peak (max-min) statistic
-    describe_data.loc["Peak-to-Peak"] = df.max() - df.min()
+        # Add peak-to-peak (max-min) statistic
+        describe_data.loc["Peak-to-Peak"] = df.max() - df.min()
 
-    # Reorder rows
-    describe_order = ["min", "max", "Peak-to-Peak", "mean", "std", "count", "25%", "50%", "75%"]
-    describe_data = describe_data.loc[describe_order]
+        # Reorder rows
+        describe_order = ["min", "max", "Peak-to-Peak", "mean", "std", "count", "25%", "50%", "75%"]
+        describe_data = describe_data.loc[describe_order]
 
-    describe_data.rename(index={
-        "min": "Minimum",
-        "max": "Maximum",
-    }, inplace=True)
+        describe_data.rename(index={
+            "min": "Minimum",
+            "max": "Maximum",
+        }, inplace=True)
 
-    st.write(describe_data)
+        st.write(describe_data)
+    else:
+        st.warning("No numeric data available to analyze.")
 
 with plot_tab:
     st.line_chart(df)
