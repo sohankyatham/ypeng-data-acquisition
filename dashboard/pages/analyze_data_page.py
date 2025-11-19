@@ -49,19 +49,33 @@ else:
     metrics_cols.metric("Columns", len(df.columns) - 1)
     metrics_missing.metric("Missing Values", df.isna().sum().sum())
 
-# Tabs
-tab1, tab2, tab3 = st.tabs(["📈 Summary Stats", "📉 Plot Data", "📄 Raw Table"])
+# Analysis Tabs for Summary Stats, Plot Data, & Raw Table
+summary_tab, plot_tab, raw_table_tab = st.tabs(["📈 Summary Stats", "📉 Plot Data", "📄 Raw Table"])
     
-with tab1:
-    st.write(df.describe())
+with summary_tab:
+    describe_data = df.describe()
 
-with tab2:
+    # Add peak-to-peak (max-min) statistic
+    describe_data.loc["Peak-to-Peak"] = df.max() - df.min()
+
+    # Reorder rows
+    describe_order = ["min", "max", "Peak-to-Peak", "mean", "std", "count", "25%", "50%", "75%"]
+    describe_data = describe_data.loc[describe_order]
+
+    describe_data.rename(index={
+        "min": "Minimum",
+        "max": "Maximum",
+    }, inplace=True)
+
+    st.write(describe_data)
+
+with plot_tab:
     st.line_chart(df)
 
-with tab3:
+with raw_table_tab:
     st.dataframe(df)
 
-# Advanced options
+# Advanced Options
 with st.expander("Advanced Options - features not implemented yet"):
     normalize = st.checkbox("Normalize data")
     remove_outliers = st.checkbox("Remove outliers")
