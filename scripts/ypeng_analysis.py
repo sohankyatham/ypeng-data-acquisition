@@ -95,7 +95,23 @@ def analyze_files(filepaths):
 
 def load_current_csv(filepath):
     # Sourcemeter format: tab-separated, no header, columns = time, current
-    df = pd.read_csv(filepath, sep='\t', header=None, names=['time', 'current'])
+    # Auto-detect separator (tab or comma) and handle varying formats
+    with open(filepath, 'r') as f:
+        first_line = f.readline()
+    sep = '\t' if '\t' in first_line else ','
+
+    df = pd.read_csv(filepath, sep=sep, header=None)
+
+    # Drop any fully empty columns
+    df = df.dropna(axis=1, how='all')
+
+    if df.shape[1] == 1:
+        # Try splitting on whitespace as last resort
+        df = pd.read_csv(filepath, sep=r'\s+', header=None, engine='python')
+
+    # Take only first two columns regardless of how many exist
+    df = df.iloc[:, :2]
+    df.columns = ['time', 'current']
     df['time']    = pd.to_numeric(df['time'],    errors='coerce')
     df['current'] = pd.to_numeric(df['current'], errors='coerce')
     df = df.dropna().reset_index(drop=True)
